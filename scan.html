@@ -3,13 +3,20 @@
 <head>
 
   <title>Scanner</title>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  
   <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+<script src="js/angular.min.js"></script>
+   
+    <script src="js/bootstrap.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
 
-  
+  <div class="container">
 
     <h1>Scan Product QR</h1>
     <video id="preview"></video>
@@ -29,6 +36,6 @@
         console.error(e);
       });
     </script>
-   
+    </div>
 </body>
 </html>
