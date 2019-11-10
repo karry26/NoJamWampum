@@ -28,26 +28,19 @@
 		</div>                    
 	</div>
 
-<div class="panel-body">
-<form role="form" id="payment-form">
-<div class="row">
-<div class="col-xs-12">
-<div class="form-group">
-<label for="cardNumber">CARD NUMBER</label>
-<div class="input-group">
-<input 
-type="tel"
-class="form-control"
-name="cardNumber"
-placeholder="Valid Card Number"
-autocomplete="cc-number"
-required autofocus 
-/>
-<span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
-</div>
-</div>                            
-</div>
-</div>
+	<div class="panel-body">
+	<form role="form" action="rate.html">
+		<div class="row">
+			<div class="col-xs-12">
+			<div class="form-group">
+			<label for="cardNumber">CARD NUMBER</label>
+			<div class="input-group">
+			<input type="tel" class="form-control" name="cardNumber" placeholder="Valid Card Number" autocomplete="cc-number" required autofocus />
+			<span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+			</div>
+		</div>                            
+	</div>
+	</div>
 <div class="row">
 <div class="col-xs-7 col-md-7">
 <div class="form-group">
@@ -86,7 +79,7 @@ required
 </div>
 <div class="row">
 <div class="col-xs-12">
-<button class="btn btn-success btn-lg btn-block" type="submit">Start Subscription</button>
+<button class="btn btn-success btn-lg btn-block" onclick="rate.html" >Pay</button>
 </div>
 </div>
 <div class="row" style="display:none;">
