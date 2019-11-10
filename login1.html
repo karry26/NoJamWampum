@@ -11,9 +11,9 @@
       
     input[type=text], 
     input[type=password] { 
-        width: 50%; 
+        width: 60%; 
         padding: 12px 20px; 
-        margin: 8px 0; 
+        margin: 8px 2px; 
         display: inline-block; 
         border: 1px solid #ccc; 
         box-sizing: border-box; 
@@ -56,11 +56,12 @@
     /*set padding to the container*/ 
       
     .container { 
-        padding: 12px;
+        padding: 5px;
         text-align: center; 
+        margin-left: 3px;
     } 
     .container1 { 
-        padding: 9px,10px;
+        padding: 9px,5px;
         text-align: center; 
     } 
     /*set the forgot password text*/ 
@@ -81,46 +82,30 @@
         } 
     } 
     div {
-        padding-top: 50px;
+        padding-top: 10px;
         padding-right: 30px;
         padding-bottom: 50px;
         padding-left: 80px;
     }
 </style> 
   
-<body> 
-    <form method="post" action="scan.html">
-  <center>
-    <h2>Login Form</h2> 
-</center>
-    <!--Step 1 : Adding HTML-->
-    <form action="/action_page.php"> 
-        <div class="imgcontainer"> 
-            <!--<img src= 
-"https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190710102234/download3.png" 
-                 alt="Avatar" class="avatar"> -->
-        </div> 
-  
+<body>
+    <br><br><br><br><br><br><br>
+    <div align="center">
+    <form method="post" action="scan.html" style="width: 40%; text-align: center;">
+    <h1>Login Form</h1> 
         <div class="container"> 
-            <label><b>Username</b></label> 
+            <label><b>Username  </b></label> 
             <input type="text" placeholder="Enter Username" name="username" required> 
         </div>
         <div class="container">
-            <label><b>Password</b></label> 
+            <label><b>Password  </b></label> 
             <input type="password" placeholder="Enter Password" name="password" required> 
         </div>
         <div class="container1">
             <button onclick="scan.html">Login</button> <br>
-            <!--<input type="checkbox" checked="checked"> Remember me -->
         </div> 
-  
-        <!--<div class="container" style="background-color:#f1f1f1" padding="10px,20px"> 
-            <button type="button" class="cancelbtn">Cancel</button> 
-            <span class="psw">Forgot <a href="#">password?</a></span>
-        </div> -->
-
-    </form> 
-  
-</body> 
-  
+    </form>
+</div>
+</body>
 </html> 
