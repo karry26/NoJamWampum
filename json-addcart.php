@@ -14,7 +14,8 @@ include_once("doconnect.php");
 
 	//$pwd=md5($pwd);
 
-
+    echo $price;
+        //echo $price;
     $new_query="INSERT INTO `order` (`name`, `quantity`, `price`) VALUES ('$name',$qty,$price);";
 //echo json_encode($new_query);
 

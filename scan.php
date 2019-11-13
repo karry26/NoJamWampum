@@ -12,43 +12,40 @@
    <script src="js/jquery-1.8.2.min.js"></script>
     <script src="js/bootstrap.js" type="text/javascript"></script>
     <link rel="stylesheet" href="css/bootstrap.css">
+    
 <link rel="stylesheet" type="text/css" href="css/custom.css"/>	
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!--  <script>
-    var module = angular.module("mymodule",[]);
-        module.controller("mycontroller", function ($scope,$http){
-            $scope.fetchdetails = function(uid)
-            {
-                
-            }
-            
-        }
-                         )
-    
-    </script>-->
 </head>
 
-<body ng-app="mymodule" ng-controller ="mycontroller">
+<body ng-app="mymodule" ng-controller ="mycontroller" >
+  <nav class="navbar align-content-center align-items-md-center">
+			<div class="container">
+				<a class="navbar-brand" href="#">Scan Here</a>
+                <div class="offset-3 form-row"><div><input class="form-control " placeholder =" Search"  ></div><div><a href="map.html"><input type="button" class="btn-primary" value="Go"></a></div></div>
+				<div class="navbar-right">
+					<div class="container minicart"></div>
+				</div>
+			</div>
+		</nav>
+		<center>
+		<div class="container-fluid breadcrumbBox text-center container">
+			<ol class="breadcrumb" >
+				<li class="active"><a href="scan.php">Scan Product</a></li>
+				<li ><a href="cart.php" >Order</a></li>
+				<li><a href="payment.php">Payment</a></li>
+			</ol>
+            </div></center>
 
   <div class=" form-row" >
-<div class="col-md-7 ">
+<div class="col-md-7 offset-1 ">
     <h1>Scan Product QR</h1>
     <video id="preview"></video>
     <script >
     
     function getproduct(data)
         {
-           // var uid=$("#uid").val();
-     
-                //var pwd=$("#pwd").val();
-                //"ajax-check-uid.php?uid="+uid+"&pwd="+pwd;
-                 alert(1);
                 $.getJSON("json-fetch-product.php?id="+data,function(aryJson)
                 {
-//                    console.log(aryK)
-                    alert(2);
-                    
-                    //alert(JSON.stringify(aryJson));
                     if(aryJson.length==0)
                         {
                             alert("no details found");
@@ -57,9 +54,9 @@
                         }
                    
                   var txt1=document.getElementById('mname');
-                    txt1.innerHTML=aryJson[0].name;
+                    txt1.innerHTML='<h2>'+aryJson[0].name+'</h2>';
                    var txt2=document.getElementById('mprice');
-                     txt2.innerHTML=aryJson[0].price;
+                     txt2.innerHTML='<h4>'+aryJson[0].price+'</h4>';
                     
                   
                    
@@ -68,39 +65,26 @@
                  
                 //-=--=-=-=====
             var pic=aryJson[0].pic; 
-            $("#mpic").prop("src","uploads/"+pic);       
-    //        $("#hdn").val(pic);     
-           // $("#dob").val(dob);     
+            $("#mpic").prop("src","images/"+pic);       
+         
                 });
             
         }
         function addcart()
         {
-            alert(1);
-            alert("Wwd");
         var    qty = $("#mquantity").val();
             var    name1 = document.getElementById('mname');
             var name=name1.innerHTML;
             //
             var    price = document.getElementById('mprice').innerHTML;
             
-           alert(3);
+           
             var qry="json-addcart.php?name="+name+"&price="+price+"&qty="+qty;
-            alert("abc");
-            alert(qry);
+  
             $.getJSON(qry,function(aryJson)
                 {
                     console.log(aryJson);
-//                    alert(2,name,price,qty);
-//                    
-//                    //alert(JSON.stringify(aryJson));
-//                    if(aryJson.length==0)
-//                        {
-//                            alert("no details found");
-//                            
-//                            return;
-//                        }
-                   
+                alert("Added to Cart");
         });}
             
             
@@ -110,7 +94,7 @@
 
       let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
       scanner.addListener('scan', function (content) {
-          alert(content);
+          //alert(content);
           
         var txt=document.getElementById('text');
         txt.innerHTML=content;
@@ -128,7 +112,7 @@
       });
     </script>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-4">
          
           <!--<div class=" " id="modal">
 			
@@ -143,26 +127,31 @@
                 </ul>
     </div>
     </div>-->
+    <br>
+    <br>
+    <br>
      <div class="card" style="width: 18rem;" id='modal'>
-  <img src="..." class="card-img-top" alt="..." id="mpic">
+  <img src="images/sprite.png" class="card-img-top " style="width:280px; height:200px;" alt="..." id="mpic">
   <div class="card-body">
-      <div class="card-title" id="mname"  >Card title</div>
-    <div class="card-title" id="mprice"> Price</div>
+      <div class="card-title" id="mname"  ><h2>Product</h2></div><br>
+      <div class="card-title" id="mprice"><h4> Price</h4></div><br>
     <input type="text " placeholder="quantity" id="mquantity">
+    <br>
+    <br>
     <a href="#" class="btn btn-primary" onclick="addcart();">Add To Cart</a>
   </div>
 </div>
       </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>s
     <p id="text"> </p>
     
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <div><button class="bg-primary" onclick="showproduct();">SHOW PRODUCT</button></div>
+
+    <div><a class="bg-primary"  href="cart.php">GO TO MY CART</a></div>
    
     </body>
 </html>

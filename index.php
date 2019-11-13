@@ -1,156 +1,155 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Shopping Cart</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-		<link rel="stylesheet" type="text/css" href="css/custom.css"/>	
-		
-        <script>
-        function getcart()
-        {
-           // var uid=$("#uid").val();
-     
-                //var pwd=$("#pwd").val();
-                //"ajax-check-uid.php?uid="+uid+"&pwd="+pwd;
-                 alert(1);
-                $.getJSON("json-fetch-cart.php",function(aryJson)
-                {
-//                    console.log(aryK)
-                    alert(2);
-                    alert(aryJson);
-                    //alert(JSON.stringify(aryJson));
-                    if(aryJson.length==0)
-                        {
-                            alert("no details found");
-                            
-                            return;
-                        }
-                   var q=["cart1q","cart2q","cart3q","cart4q","cart5q","cart6q","cart7q"];
-                   var i=["cart1i","cart2i","cart3i","cart4i","cart5i","cart6i","cart7i"];
-                   var p=["cart1p","cart2p","cart3p","cart4p","cart5p",,"cart6p",,"cart7p"];
-                    var t=0;
-                    for (var j=0;j<aryJson.length;j++)
-                        
-                        {
-                            var obj = aryJson[j];
-                            document.getElementById(q[j]).innerHTML=obj.quantity;
-                            
-                            document.getElementById(i[j]).innerHTML=obj.name;
-                            
-                            document.getElementById(p[j]).innerHTML=obj.price;
-                            
-                            t=t+ (parseInt(document.getElementById(p[j]).innerHTML))*
-                                (parseInt(document.getElementById(q[j]).innerHTML));
-                            
-                        }
-                    
-                    document.getElementById("total").innerHTML=t;
-                    
-                  
-    //        $("#hdn").val(pic);     
-           // $("#dob").val(dob);     
-                });
-            
-        }
-        
-        </script>	
-	</head>
+   
+<!DOCTYPE html> 
+<html> 
+<style> 
+    /*set border to the form*/ 
+      
+    form { 
+        border: 3px solid #f1f1f1; 
+    } 
+    /*assign full width inputs*/ 
+      
+    input[type=text], 
+    input[type=password] { 
+        width: 60%; 
+        padding: 12px 20px; 
+        margin: 8px 2px; 
+        display: inline-block; 
+        border: 1px solid #ccc; 
+        box-sizing: border-box; 
+    } 
+    /*set a style for the buttons*/ 
+      
+    button { 
+        background-color: #4CAF50; 
+        color: white; 
+        padding: 14px 20px; 
+        margin: 8px 0; 
+        border: none; 
+        cursor: pointer; 
+        width: 50%; 
+    } 
+    /* set a hover effect for the button*/ 
+      
+    button:hover { 
+        opacity: 0.8; 
+    } 
+    /*set extra style for the cancel button*/ 
+      
+    .cancelbtn { 
+        width: auto; 
+        padding: 10px 18px; 
+        background-color: #f44336; 
+    } 
+    /*centre the display image inside the container*/ 
+      
+    .imgcontainer { 
+        text-align: center; 
+        margin: 24px 0 12px 0; 
+    } 
+    /*set image properties*/ 
+      
+    /*img.avatar { 
+        width: 40%; 
+        border-radius: 50%; 
+    }*/
+    /*set padding to the container*/ 
+      
+    .container { 
+        padding: 5px;
+        text-align: center; 
+        margin-left: 3px;
+    } 
+    .container1 { 
+        padding: 9px,5px;
+        text-align: center; 
+    } 
+    /*set the forgot password text*/ 
+      
+    span.psw { 
+        float: right; 
+        padding-top: 16px; 
+    } 
+    /*set styles for span and cancel button on small screens*/ 
+      
+    @media screen and (max-width: 300px) { 
+        span.psw { 
+            display: block; 
+            float: none; 
+        } 
+        .cancelbtn { 
+            width: 50%; 
+        } 
+    } 
+    div {
+        padding-top: 10px;
+        padding-right: 30px;
+        padding-bottom: 50px;
+        padding-left: 80px;
+    }
+</style> 
+  
+<body>
+    <br><br><br><br><br><br><br>
+    <div align="center">
+    <form method="post" action="cart.php" style="width: 40%; text-align: center;">
+    <h1>Login Form</h1> 
+        <div class="container"> 
+            <label><b>Username  </b></label> 
+            <input type="text" placeholder="Enter Username" name="username" required> 
+        </div>
+        <div class="container">
+            <label><b>Password  </b></label> 
+            <input type="password" placeholder="Enter Password" name="password" required> 
+        </div>
+        <div class="container1">
+            <button onclick="cart.php">Login</button> <br>
+        </div> 
+    </form>
+</div>
+</body>
+</html> 
 
-	<body>
-		
-		<nav class="navbar">
-			<div class="container">
-				<a class="navbar-brand" href="#">Your Cart</a>
-				<div class="navbar-right">
-					<div class="container minicart"></div>
-				</div>
-			</div>
-		</nav>
-		
-		<div class="container-fluid breadcrumbBox text-center">
-			<ol class="breadcrumb">
-				<li><a href="scan.php">Scan More</a></li>
-				<li class="active"><a href="#" onclick="getcart();">Order</a></li>
-				<li><a href="payment.php">Payment</a></li>
-			</ol>
-		</div>
-		
-		<div class="container">
-			
-			<div class="col-md-12 col-sm-12 text-left">
-				<ul>
-					<li class="row list-inline columnCaptions">
-						<span>QTY</span>
-						<span>ITEM</span>
-						<span>Price</span>
-					</li>
-					<li class="row">
-						<span class="quantity" id="cart1q"></span>
-						<span class="itemName" id="cart1i"></span>
-						<span class="popbtn"><a class="arrow"></a></span>
-						<span class="price" id="cart1p"></span>
-					</li>
-					<li class="row">
-						<span class="quantity" id="cart2q"></span>
-						<span class="itemName" id="cart2i"></span>
-						<span class="popbtn"><a class="arrow"></a></span>
-						<span class="price" id="cart2p"></span>
-					</li>
-					<li class="row">
-						<span class="quantity" id="cart3q" ></span>
-						<span class="itemName" id="cart3i"></span>
-						<span class="popbtn"><a class="arrow"></a></span>
-						<span class="price" id="cart3p"></span>				
-					</li>
-					<li class="row">
-						<span class="quantity" id="cart4q"></span>
-						<span class="itemName" id="cart4i"></span>
-						<span class="popbtn"><a class="arrow"></a></span>
-						<span class="price" id="cart4p"></span>
-					</li>
-					<li class="row">
-						<span class="quantity" id="cart5q"></span>
-						<span class="itemName" id="cart5i"></span>
-						<span class="popbtn"  data-parent="#asd" data-toggle="collapse" data-target="#demo"><a class="arrow"></a></span>
-						<span class="price" id="cart5p"></span>				
-					</li>
-					<li class="row">
-						<span class="quantity" id="cart6q"></span>
-						<span class="itemName" id="cart6i"></span>
-						<span class="popbtn"  data-parent="#asd" data-toggle="collapse" data-target="#demo"><a class="arrow"></a></span>
-						<span class="price" id="cart6p"></span>				
-					</li>
-					<li class="row">
-						<span class="quantity" id="cart7q"></span>
-						<span class="itemName" id="cart7i"></span>
-						<span class="popbtn"  data-parent="#asd" data-toggle="collapse" data-target="#demo"><a class="arrow"></a></span>
-						<span class="price" id="cart7p"></span>				
-					</li>
-					<li class="row totals">
-						<span class="itemName">Total:</span>
-						<span class="price" id="total"></span>
-						<span class="order"> <a class="text-center" href="payment.php">ORDER</a></span>
-					</li>
-				</ul>
-			</div>
+    
 
-		</div>
+    <?php
 
-		<!-- The popover content -->
-
-		<div id="popover" style="display: none">
-			<a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-			<a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-		</div>
-		
-		<!-- JavaScript includes -->
-
-		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/customjs.js"></script>
-
-	</body>
-</html>
+    $username = filter_input(INPUT_POST, 'username');
+    $password = filter_input(INPUT_POST, 'password');
+    if (!empty($username)){
+    if (!empty($password)){
+    $host = "localhost";
+    $dbusername = "root";
+    $dbpassword = "";
+    $dbname = "db1";
+    // Create connection
+    $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
+    if (mysqli_connect_error()){
+    die('Connect Error ('. mysqli_connect_errno() .') '
+    . mysqli_connect_error());
+    }
+    else{
+    $sql = "INSERT INTO login1 (Username, Password)
+    values ('$username','$password')";
+    if ($conn->query($sql)){
+       // header("scan.html")
+    //echo "New record is inserted sucessfully";
+    }
+    else{
+    echo "Error: ". $sql ."
+    ". $conn->error;
+    }
+    $conn->close();
+    }
+    }
+    else{
+    echo "Password should not be empty";
+    die();
+    }
+    }
+    else{
+  //  echo "Username should not be empty";
+    die();
+    }
+    ?>
+ 
